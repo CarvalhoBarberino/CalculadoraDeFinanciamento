@@ -1,14 +1,53 @@
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Main {
 	public static void main(String[] args) {
 		JFrame j0 = new JFrame("Calculadora de financiamento");
-		j0.setBounds(150, 150, 600, 400); j0.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);j0.setResizable(false);j0.setVisible(true);
-		j0.getContentPane().setLayout(null);
-		JLabel jLNumeroDeParcelas = new JLabel("Digite o numero de parcelas");
-		JTextField JTNumeroDeParcelas = new JTextField(40);
+		j0.setBounds(150, 150, 600, 400); j0.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);j0.setResizable(true);j0.setVisible(true);
+		j0.getContentPane().setLayout(new FlowLayout());
+		JLabel jLNumeroDeParcelas = new JLabel("Digite o numero maximo de parcelas             ");
+		JTextField jTNumeroDeParcelas = new JTextField(10);
+		JLabel jLJuros = new JLabel("Digite o valor do juros em porcentagem");
+		JTextField jTJuros = new JTextField(10);
+		JLabel jLValor = new JLabel("Digite o valor A ser fianciado                  ");
+		JTextField jTValor = new JTextField(10);
+		Dimension dimLinha = new Dimension(400, 30);
+		JPanel pLinha1 = new JPanel();pLinha1.setPreferredSize(dimLinha); pLinha1.setLayout(new FlowLayout());pLinha1.add(jLValor); pLinha1.add(jTValor);j0.getContentPane().add(pLinha1);
+		JPanel pLinha2 = new JPanel();pLinha2.setPreferredSize(dimLinha);pLinha2.setLayout(new FlowLayout());pLinha2.add(jLNumeroDeParcelas); pLinha2.add(jTNumeroDeParcelas);j0.getContentPane().add(pLinha2);
+		JPanel pLinha3 = new JPanel();pLinha2.setPreferredSize(dimLinha);pLinha3.setLayout(new FlowLayout());pLinha3.add(jLJuros); pLinha3.add(jTJuros);j0.getContentPane().add(pLinha3);
+		System.out.println(Math.pow(3, 2));
+		JButton bCalcular = new JButton("Calcular");
+		j0.getContentPane().add(bCalcular);
+		bCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					float valorMontante;
+					float valorParcela;
+					float juros;
+					int nParcelas;
+					valorMontante = Float.valueOf(jTValor.getText());
+					nParcelas = Integer.valueOf(jTNumeroDeParcelas.getText());
+					juros = Float.valueOf(jTJuros.getText());
+					Problema problema1 = new Problema();
+					problema1.setValores(valorMontante, juros);
+					problema1.solve(nParcelas);
+				}catch(Exception err){
+					err.printStackTrace();
+				}
+				
+			}
+		});
+		
+		
 		
 		
 		//compra de whey com denis 28/03/2018 235,08 = 0,9 * (2 * 85 + 25,20 + 66)

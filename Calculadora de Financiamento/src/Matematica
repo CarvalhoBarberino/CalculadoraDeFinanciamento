@@ -1,0 +1,125 @@
+(Q * (1+j)^nP) / (1 + ((1+j)^nP - (1+j)) / j) = p
+
+Q * (1+j)^nP = p * (1 + ((1+j)^nP - (1+j)) / j)
+
+Q * (1+j)^nP - p * (1 + ((1+j)^nP - (1+j)) / j) = 0
+
+Formula generica{
+	Q * (1+j)^nP - p * (1 + ((1+j)^nP - (1+j)) / j)
+	
+	Q * (1+j)^nP - p * (1 + S)
+	
+	Q * (1+j)^nP - p * (1 + sum(k=1, nP-1, ((1+j)^k)))
+	
+	Q * (1+j)^nP - p * sum(k=0, nP-1, ((1+j)^k))
+}
+
+S = ((1+j)^nP - (1+j)) / j
+
+S * j = (1+j)^nP - (1+j)
+
+S * ((1+j) - 1) = (1+j)^nP - (1+j)
+
+S * (1+j) - S = (1+j)^nP - (1+j)
+
+(1+j) + S * (1+j) - (1+j)^nP = S
+
+1 + S - (1+j)^(nP-1) = S/(1+j)
+
+(sum(k=0, nP-2, ((1+j)^k)) = (S - 1)/(1+j) + 1/(1+j) = (S - 1 + 1)/(1+j) = S/(1+j)
+
+(sum(k=0, nP-2, ((1+j)^k)) - 1/(1+j) = (S - 1)/(1+j)
+
+(sum(k=1, nP-1, ((1+j)^k)) - 1)/(1+j) = (S - 1)/(1+j)
+
+sum(k=1, nP-1, ((1+j)^k)) - 1 = S - 1
+
+sum(k=1, nP-1, ((1+j)^k)) = S
+
+
+Formula generica{
+	Q * (1+j)^nP - p * sum(k=0, nP-1, ((1+j)^k))
+}
+
+nP = 3
+Q * (1+j)^3 - p * sum(k=0, nP-1, ((1+j)^k))
+
+Q * (1+j)^3 - p * ((1+j)^2 + (1+j) + 1)
+Q * (1+j)^3 - p * (1+j)^2 - p * (1+j) - p
+(Q * (1+j)^2 - p * (1+j) - p) * (1+j) - p
+
+nP = 2
+Q * (1+j)^2 - p * sum(k=0, nP-1, ((1+j)^k))
+
+Q * (1+j)^2 - p * ((1+j) + 1)
+Q * (1+j)^2 - p * (1+j) - p
+(Q * (1+j) - p) * (1+j) - p
+
+nP = 1
+Q * (1+j) - p
+
+Seja Q = O valor total emprestado
+Seja p = O valor da parcela a ser paga
+Seja nP = O numero de parcelas(Q * (1+j)^nP) / (1 + ((1+j)^nP - (1+j)) / j) = p
+
+Q * (1+j)^nP = p * (1 + ((1+j)^nP - (1+j)) / j)
+
+Q * (1+j)^nP - p * (1 + ((1+j)^nP - (1+j)) / j) = 0
+
+Formula generica{
+	Q * (1+j)^nP - p * (1 + ((1+j)^nP - (1+j)) / j)
+	
+	Q * (1+j)^nP - p * (1 + S)
+	
+	Q * (1+j)^nP - p * (1 + sum(k=1, nP-1, ((1+j)^k)))
+	
+	Q * (1+j)^nP - p * sum(k=0, nP-1, ((1+j)^k))
+}
+
+S = ((1+j)^nP - (1+j)) / j
+
+S * j = (1+j)^nP - (1+j)
+
+S * ((1+j) - 1) = (1+j)^nP - (1+j)
+
+S * (1+j) - S = (1+j)^nP - (1+j)
+
+(1+j) + S * (1+j) - (1+j)^nP = S
+
+1 + S - (1+j)^(nP-1) = S/(1+j)
+
+(sum(k=0, nP-2, ((1+j)^k)) = (S - 1)/(1+j) + 1/(1+j) = (S - 1 + 1)/(1+j) = S/(1+j)
+
+(sum(k=0, nP-2, ((1+j)^k)) - 1/(1+j) = (S - 1)/(1+j)
+
+(sum(k=1, nP-1, ((1+j)^k)) - 1)/(1+j) = (S - 1)/(1+j)
+
+sum(k=1, nP-1, ((1+j)^k)) - 1 = S - 1
+
+sum(k=1, nP-1, ((1+j)^k)) = S
+
+
+Formula generica{
+	Q * (1+j)^nP - p * sum(k=0, nP-1, ((1+j)^k))
+}
+
+nP = 3
+Q * (1+j)^3 - p * sum(k=0, nP-1, ((1+j)^k))
+
+Q * (1+j)^3 - p * ((1+j)^2 + (1+j) + 1)
+Q * (1+j)^3 - p * (1+j)^2 - p * (1+j) - p
+(Q * (1+j)^2 - p * (1+j) - p) * (1+j) - p
+
+nP = 2
+Q * (1+j)^2 - p * sum(k=0, nP-1, ((1+j)^k))
+
+Q * (1+j)^2 - p * ((1+j) + 1)
+Q * (1+j)^2 - p * (1+j) - p
+(Q * (1+j) - p) * (1+j) - p
+
+nP = 1
+Q * (1+j) - p
+
+Seja Q = O valor total emprestado
+Seja p = O valor da parcela a ser paga
+Seja nP = O numero de parcelas
