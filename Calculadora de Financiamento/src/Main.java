@@ -10,13 +10,17 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Main {
 	public static void main(String[] args) {
+		Problema problema1 = new Problema();
 		JFrame j0 = new JFrame("Calculadora de financiamento");
-		j0.setBounds(150, 150, 400, 400); j0.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);j0.setResizable(true);
+		j0.setBounds(150, 150, 400, 400); j0.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);j0.setResizable(false);
 		j0.getContentPane().setLayout(new FlowLayout());
 		JLabel jLNumeroDeParcelas = new JLabel("Digite o numero maximo de parcelas     ");
 		JTextField jTNumeroDeParcelas = new JTextField(10);
@@ -30,9 +34,11 @@ public class Main {
 		JPanel pLinha3 = new JPanel();pLinha2.setPreferredSize(dimLinha);pLinha3.setLayout(new FlowLayout());pLinha3.add(jLJuros); pLinha3.add(jTJuros);j0.getContentPane().add(pLinha3);
 		JButton bCalcular = new JButton("Calcular");
 		j0.getContentPane().add(bCalcular);
-		JComboBox combo = new JComboBox();
+		JComboBox combo = new JComboBox(); combo.setPreferredSize(new Dimension(200, 20));
 		j0.getContentPane().add(combo);
-		
+		JTextArea jAevolucao = new JTextArea("");
+		JScrollPane painelRolagem = new JScrollPane(jAevolucao); painelRolagem.setPreferredSize(new Dimension(375, 200));
+		j0.getContentPane().add(painelRolagem);
 		j0.setVisible(true);
 		bCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -45,7 +51,6 @@ public class Main {
 					nParcelas = Integer.valueOf(jTNumeroDeParcelas.getText());
 					String[] lista = new String[nParcelas];
 					juros = Float.valueOf(jTJuros.getText())/100;
-					Problema problema1 = new Problema();
 					problema1.setValores(valorMontante, juros);
 					lista = problema1.solve(nParcelas);
 					for(int i = 0; i < nParcelas; i++){
@@ -53,13 +58,14 @@ public class Main {
 					}
 				}catch(Exception err){
 					err.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Digite os valores no formato correto.\nExemplo: 3521.41");
 				}
 				
 			}
 		});
 		combo.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				System.out.println("chenge");
+				jAevolucao.setText(problema1.printEvolucao((String)combo.getSelectedItem()));
 			}
 		});
 		
