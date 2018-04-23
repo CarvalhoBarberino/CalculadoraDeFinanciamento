@@ -14,7 +14,7 @@ public class Problema {
 		for(int i = 1; i <= numeroMaximoDeParcelas; i++){
 			// esta é a notação definida no arquivo matematica: p = (Q * (1+j)^nP) / (1 + ((1+j)^nP - (1+j)) / j)
 			p = (valorMontante * (float)Math.pow(1+juros, i)) / (1 + ((float)Math.pow(1+juros, i) - (1+juros)) / juros);
-			lista[i-1] = i + "x" + String.format("%.2f", p);
+			lista[i-1] = i + "x" + p;
 		}
 		return lista;
 	}
